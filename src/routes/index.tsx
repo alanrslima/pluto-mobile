@@ -1,6 +1,6 @@
 import React from 'react';
-import {Login} from '../pages/Login';
+import {Accounts} from '../pages/Accounts';
 
 export default function Routes() {
-  return <Login />;
+  return <Accounts />;
 }

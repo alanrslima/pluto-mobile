@@ -1,11 +1,10 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {Screen} from '../../components/organisms/Screen';
+import {Text, View} from 'react-native';
 
 export function Login() {
   return (
-    <Screen>
+    <View>
       <Text>OLAAAA</Text>
-    </Screen>
+    </View>
   );
 }
