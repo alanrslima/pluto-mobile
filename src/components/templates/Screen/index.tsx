@@ -12,7 +12,14 @@ export function Screen(props: ScreenProps) {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
-      <Header {...props.header} />
+      <Header
+        {...props.header}
+        leftButtons={
+          props.navigation.canGoBack()
+            ? [{name: 'chevron-left', onPress: props.navigation.goBack}]
+            : undefined
+        }
+      />
       {props.children}
     </View>
   );

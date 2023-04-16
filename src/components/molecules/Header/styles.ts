@@ -17,5 +17,8 @@ export const headerStyles = (theme: ThemeProps) => {
       color: theme.colors.white,
       fontSize: theme.fontSizes.display_xs,
     },
+    wrapperButton: {
+      marginRight: theme.spaces[4],
+    },
   });
 };

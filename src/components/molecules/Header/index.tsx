@@ -12,11 +12,15 @@ export function Header({leftButtons, rightButtons, title}: HeaderProps) {
   return (
     <View style={styles.container}>
       {leftButtons?.map(button => (
-        <HeaderButton key={button.name} {...button} />
+        <View key={button.name} style={styles.wrapperButton}>
+          <HeaderButton {...button} />
+        </View>
       ))}
       <Text style={styles.title}>{title}</Text>
       {rightButtons?.map(button => (
-        <HeaderButton key={button.name} {...button} />
+        <View key={button.name} style={styles.wrapperButton}>
+          <HeaderButton {...button} />
+        </View>
       ))}
     </View>
   );

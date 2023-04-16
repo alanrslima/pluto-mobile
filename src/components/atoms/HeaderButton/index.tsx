@@ -5,11 +5,11 @@ import {useStyle} from '../../../hooks/useStyle';
 import {headerButtonStyles} from './styles';
 import {HeaderButtonProps} from './types';
 
-export function HeaderButton({name}: HeaderButtonProps) {
+export function HeaderButton({name, onPress}: HeaderButtonProps) {
   const styles = useStyle(headerButtonStyles);
 
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Icon name={name} size={15} color="white" />
     </TouchableOpacity>
   );
