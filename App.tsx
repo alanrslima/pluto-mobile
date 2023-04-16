@@ -1,14 +1,11 @@
 import React from 'react';
-import {Contexts} from './src/contexts';
 import Routes from './src/routes';
-import {FontsLoader} from './src/components/templates/FontsLoader';
+import {RootProvider} from './src/components/organisms/RootProvider';
 
 export default function App() {
   return (
-    <FontsLoader>
-      <Contexts>
-        <Routes />
-      </Contexts>
-    </FontsLoader>
+    <RootProvider>
+      <Routes />
+    </RootProvider>
   );
 }

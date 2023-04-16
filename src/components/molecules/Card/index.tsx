@@ -4,8 +4,9 @@ import {Text} from '../../atoms/Text';
 import {cardStyles} from './styles';
 import {LinearGradient} from 'expo-linear-gradient';
 import {TouchableOpacity, View} from 'react-native';
+import {CardProps} from './types';
 
-export function Card() {
+export function Card({title, value, type}: CardProps) {
   const styles = useStyle(cardStyles);
 
   return (
@@ -16,12 +17,12 @@ export function Card() {
         end={{x: 1, y: 1}}
         style={styles.container}>
         <View style={styles.row}>
-          <Text style={styles.title}>NuBank</Text>
-          <Text style={styles.type}>Conta corrente</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.type}>{type}</Text>
         </View>
 
         <Text style={styles.signal}>
-          R$ <Text style={styles.value}>5.209,00</Text>
+          R$ <Text style={styles.value}>{value}</Text>
         </Text>
       </LinearGradient>
     </TouchableOpacity>

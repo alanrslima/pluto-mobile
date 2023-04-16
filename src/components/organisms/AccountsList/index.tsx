@@ -15,7 +15,7 @@ export function AccountsList() {
       <SectionHeader title="Contas" />
       {accounts.map(account => (
         <View key={account} style={styles.wrapperCard}>
-          <Card />
+          <Card title="Inter" value="10.5980,76" type="Conta corrente" />
         </View>
       ))}
     </ScrollView>
