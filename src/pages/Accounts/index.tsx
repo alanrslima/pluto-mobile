@@ -4,7 +4,11 @@ import {Screen} from '../../components/templates/Screen';
 
 export function Accounts() {
   return (
-    <Screen>
+    <Screen
+      header={{
+        title: 'Carteira',
+        rightButtons: [{name: 'plus'}],
+      }}>
       <AccountsList />
     </Screen>
   );

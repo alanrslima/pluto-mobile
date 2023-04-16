@@ -1,4 +1,6 @@
 export const fonts = {
-  openSans: 'Open Sans, apple-system, sans-serif',
-  workSans: 'Work Sans, menlo, monospace',
+  poppins_bold: 'Poppins-Bold',
+  poppins_semiBold: 'Poppins-SemiBold',
+  poppins_medium: 'Poppins-Medium',
+  poppins_regular: 'Poppins-Regular',
 };
