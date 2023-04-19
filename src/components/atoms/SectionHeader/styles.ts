@@ -5,7 +5,8 @@ export const sectionHeaderStyles = (theme: ThemeProps) => {
   return StyleSheet.create({
     wrapper: {
       paddingHorizontal: theme.spaces[2],
-      paddingVertical: theme.spaces[4],
+      paddingVertical: theme.spaces[5],
+      backgroundColor: theme.colors.background,
     },
     text: {
       color: theme.colors.white,

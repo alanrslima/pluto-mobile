@@ -12,13 +12,13 @@ export function Header({leftButtons, rightButtons, title}: HeaderProps) {
   return (
     <View style={styles.container}>
       {leftButtons?.map(button => (
-        <View key={button.name} style={styles.wrapperButton}>
+        <View key={button.name} style={styles.wrapperLeftButton}>
           <HeaderButton {...button} />
         </View>
       ))}
       <Text style={styles.title}>{title}</Text>
       {rightButtons?.map(button => (
-        <View key={button.name} style={styles.wrapperButton}>
+        <View key={button.name} style={styles.wrapperRightButton}>
           <HeaderButton {...button} />
         </View>
       ))}

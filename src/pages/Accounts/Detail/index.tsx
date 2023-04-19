@@ -6,7 +6,7 @@ import {AccountsDetailPageProps} from './types';
 
 export function AccountsDetailPage({navigation}: AccountsDetailPageProps) {
   return (
-    <Screen navigation={navigation}>
+    <Screen navigation={navigation} header={{ rightButtons: [{  name: ''}]}}>
       <ScrollView>
         <SectionHeader title="Resultados da conta" />
       </ScrollView>

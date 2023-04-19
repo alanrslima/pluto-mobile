@@ -10,7 +10,7 @@ export function HeaderButton({name, onPress}: HeaderButtonProps) {
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Icon name={name} size={15} color="white" />
+      <Icon name={name} size={20} color="white" />
     </TouchableOpacity>
   );
 }

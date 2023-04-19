@@ -5,12 +5,15 @@ import {screenStyles} from './styles';
 import {ScreenProps} from './types';
 import {Header} from '../../molecules/Header';
 import {StatusBar} from 'expo-status-bar';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export function Screen(props: ScreenProps) {
   const styles = useStyle(screenStyles);
 
+  const {bottom} = useSafeAreaInsets();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {paddingBottom: bottom}]}>
       <StatusBar style="light" />
       <Header
         {...props.header}
