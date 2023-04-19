@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FlatList, LayoutRectangle, View} from 'react-native';
 import {SimpleButton} from '../../atoms/SimpleButton';
 import {Month} from '../../../types/Month';
@@ -37,12 +37,16 @@ export function MonthPicker() {
   ];
   const [currentMonth, setCurrentMonth] = useState<Month>();
 
-  function onPressItem(month: Month) {
+  function handleScroll(item: Month) {
     flatListRef.current?.scrollToItem({
-      item: month,
+      item,
       animated: true,
       viewPosition: 0.5,
     });
+  }
+
+  function onPressItem(month: Month) {
+    handleScroll(month);
     setCurrentMonth(month);
   }
 

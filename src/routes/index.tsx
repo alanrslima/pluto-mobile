@@ -1,41 +1,34 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {TransactionsStack} from './TransactionsStack';
+import {AccountsStack} from './AccountsStack';
+import {useTheme} from '../hooks/useTheme';
+import {MenuStack} from './MenuStack';
 
-import {AccountsListPage} from '../pages/Accounts/List';
-import {AccountsCreatePage} from '../pages/Accounts/Create';
-import {AccountsDetailPage} from '../pages/Accounts/Detail';
-
-import {TransactionsListPage} from '../pages/Transactions/List';
-import {TransactionsDetailPage} from '../pages/Transactions/Detail';
-
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {RootStackParamList} from './types';
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
 
 export default function Routes() {
+  const {colors} = useTheme();
+
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="AccountsListPage" component={AccountsListPage} />
-        <Stack.Screen
-          name="AccountsDetailPage"
-          component={AccountsDetailPage}
-        />
-        <Stack.Screen
-          name="AccountsCreatePage"
-          component={AccountsCreatePage}
-        /> */}
-
-        <Stack.Screen
-          name="TransactionsListPage"
-          component={TransactionsListPage}
-        />
-        <Stack.Screen
-          name="TransactionsDetailPage"
-          component={TransactionsDetailPage}
-        />
-      </Stack.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: '#1D1749',
+            borderTopColor: colors.whiteA100,
+            shadowColor: colors.black,
+            shadowOffset: {width: 0, height: 0},
+            shadowOpacity: 0.7,
+            shadowRadius: 10,
+          },
+        }}>
+        <Tab.Screen name="Transactions" component={TransactionsStack} />
+        <Tab.Screen name="Accounts" component={AccountsStack} />
+        <Tab.Screen name="Menu" component={MenuStack} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

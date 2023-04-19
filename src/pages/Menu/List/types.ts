@@ -1,7 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../../routes/types';
 
-export type TransactionsDetailPageProps = NativeStackScreenProps<
+export type MenuListPageProps = NativeStackScreenProps<
   RootStackParamList,
-  'TransactionsDetailPage'
+  'MenuListPage'
 >;

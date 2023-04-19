@@ -7,4 +7,5 @@ export type ScreenProps = {
   children: ReactNode;
   header?: Omit<HeaderProps, 'leftButtons'>;
   navigation: NativeStackNavigationProp<RootStackParamList, any, any>;
+  useBottomSafeArea?: boolean;
 };

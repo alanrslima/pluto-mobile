@@ -13,7 +13,11 @@ export function Screen(props: ScreenProps) {
   const {bottom} = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, {paddingBottom: bottom}]}>
+    <View
+      style={[
+        styles.container,
+        props.useBottomSafeArea && {paddingBottom: bottom},
+      ]}>
       <StatusBar style="light" />
       <Header
         {...props.header}

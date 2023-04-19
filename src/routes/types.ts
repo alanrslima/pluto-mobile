@@ -7,4 +7,6 @@ export type RootStackParamList = {
 
   TransactionsListPage: undefined;
   TransactionsDetailPage: {transactionId: string};
+
+  MenuListPage: undefined;
 };
