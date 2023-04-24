@@ -7,9 +7,8 @@ export const simpleButtonStyles = (theme: ThemeProps) => {
       paddingVertical: theme.spaces[4],
       paddingHorizontal: theme.spaces[6],
       borderRadius: theme.radii[2],
-    },
-    wrapperSelected: {
-      backgroundColor: theme.colors.primary,
+      flexDirection: 'row',
+      alignItems: 'center',
     },
     title: {
       fontFamily: theme.fonts.poppins_semiBold,

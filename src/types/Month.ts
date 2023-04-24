@@ -1,5 +1,6 @@
 export type Month = {
+  id: string;
   label: string;
-  startDate: Date;
-  endDate: Date;
+  startAt: Date;
+  endAt: Date;
 };

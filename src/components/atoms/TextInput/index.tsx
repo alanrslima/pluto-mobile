@@ -1,51 +1,26 @@
-// import React from 'react';
-// import {TextInput as RNTextInput} from 'react-native';
-
-// export function TextInput() {
-//   return <RNTextInput />;
-// }
-
 import React from 'react';
-import {ConnectForm} from '../ConnectForm';
-import {forwardRef, ReactElement} from 'react';
-// import {Input} from './input.component';
-import {Container} from './styles';
+import {View, TextInput as RNTextInput} from 'react-native';
+import {useStyle} from '../../../hooks/useStyle';
+import {textInputStyles} from './styles';
 import {TextInputProps} from './types';
-import {TextInput as RNTextInput} from 'react-native';
+import {useTheme} from '../../../hooks/useTheme';
+import {Label} from '../Label';
 
-const comp = forwardRef<HTMLInputElement, TextInputProps>(
-  (props, ref): ReactElement => {
-    const {
-      name,
-      type = 'text',
-      isInvalid,
-      controlled = true,
-      disabled,
-      ...inputProps
-    } = props || {};
+export function TextInput({label, ...rest}: TextInputProps) {
+  const styles = useStyle(textInputStyles);
+  const {colors} = useTheme();
 
-    return (
-      <Container disabled={disabled} isInvalid={isInvalid}>
-        <ConnectForm>
-          {({register}) => {
-            const hasControl =
-              controlled && register ? register(name) : undefined;
-
-            return (
-              <RNTextInput
-                style={{alignItems: 'center'}}
-                // list={list || null}
-                id={id ?? `txt_${name}`}
-                type={type}
-                {...(register ?? {ref, name})}
-                {...inputProps}
-              />
-            );
-          }}
-        </ConnectForm>
-      </Container>
-    );
-  },
-);
-
-export const TextInput = comp;
+  return (
+    <View style={styles.wrapper}>
+      <Label>{label}</Label>
+      <View style={styles.row}>
+        <RNTextInput
+          keyboardAppearance="dark"
+          placeholderTextColor={colors.whiteA300}
+          style={[styles.input, rest.multiline && styles.inputMultiline]}
+          {...rest}
+        />
+      </View>
+    </View>
+  );
+}

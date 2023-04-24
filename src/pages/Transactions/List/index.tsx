@@ -1,5 +1,5 @@
 import React from 'react';
-import {TransactionsList} from '../../../components/organisms/TransactionsList';
+import {TransactionsList} from '../../../components/templates/TransactionsList';
 import {Screen} from '../../../components/templates/Screen';
 import {TransactionsListPageProps} from './types';
 import {MonthPicker} from '../../../components/molecules/MonthPicker';

@@ -6,35 +6,15 @@ import {useStyle} from '../../../hooks/useStyle';
 import {monthPickerStyles} from './styles';
 import {useTheme} from '../../../hooks/useTheme';
 import {LinearGradient} from 'expo-linear-gradient';
+import {DateHelpers} from '../../../helpers/date';
 
 export function MonthPicker() {
   const [scrollLayout, setScrollLayout] = useState<LayoutRectangle>();
   const styles = useStyle(monthPickerStyles);
   const flatListRef = useRef<FlatList>(null);
   const {colors} = useTheme();
-  const data = [
-    {label: 'Jan, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Fev, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Mar, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Abr, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Mai, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Jun, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Jul, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Ago, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Set, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Out, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Nov, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Dez, 23', startDate: new Date(), endDate: new Date()},
-    {label: 'Jan, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Fev, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Mar, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Abr, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Mai, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Jun, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Jul, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Ago, 24', startDate: new Date(), endDate: new Date()},
-    {label: 'Set, 24', startDate: new Date(), endDate: new Date()},
-  ];
+  const dateHelpers = new DateHelpers();
+  const data = dateHelpers.getTransactionsRange();
   const [currentMonth, setCurrentMonth] = useState<Month>();
 
   function handleScroll(item: Month) {
@@ -46,14 +26,28 @@ export function MonthPicker() {
   }
 
   function onPressItem(month: Month) {
-    handleScroll(month);
+    // handleScroll(month);
     setCurrentMonth(month);
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (currentMonth) {
+        handleScroll(currentMonth);
+      }
+
+      // setCurrentMonth(data[10]);
+      // handleScroll(data[10]);
+    }, 1000);
+
+    // console.log(dateHelpers.getTransactionsRange());
+  }, [data, currentMonth]);
 
   return (
     <View>
       <FlatList
         bounces={false}
+        onScrollToIndexFailed={() => console.log('failed')}
         onLayout={evt => setScrollLayout(evt.nativeEvent.layout)}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
@@ -62,12 +56,12 @@ export function MonthPicker() {
         horizontal
         ref={flatListRef}
         data={data}
-        keyExtractor={item => `${item.label}`}
+        keyExtractor={item => `${item.id}`}
         renderItem={({item}) => (
           <SimpleButton
-            selected={item.label === currentMonth?.label}
+            selected={item.id === currentMonth?.id}
             onPress={() => onPressItem(item)}
-            title={item.label}
+            title={item.id}
           />
         )}
       />

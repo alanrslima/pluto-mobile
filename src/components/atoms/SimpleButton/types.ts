@@ -1,5 +1,5 @@
 export type SimpleButtonProps = {
-  selected?: boolean;
+  color?: string;
   title: string;
   onPress?: () => void;
 };

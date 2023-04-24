@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList} from './types';
 import {TransactionsListPage} from '../pages/Transactions/List';
 import {TransactionsDetailPage} from '../pages/Transactions/Detail';
+import {TransactionsFormPage} from '../pages/Transactions/Form';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -16,6 +17,10 @@ export function TransactionsStack() {
       <Stack.Screen
         name="TransactionsDetailPage"
         component={TransactionsDetailPage}
+      />
+      <Stack.Screen
+        name="TransactionsFormPage"
+        component={TransactionsFormPage}
       />
     </Stack.Navigator>
   );

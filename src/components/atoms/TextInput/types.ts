@@ -1,17 +1,8 @@
-import {UseFormRegisterReturn} from 'react-hook-form';
+import {TextInputProps as RNTextInputProps} from 'react-native';
+import {IconName} from '../Icon/types';
 
-export type TextInputProps = {
-  id?: string;
-  name: string;
-  controlled?: boolean;
-  list?: string;
-  type?: 'email' | 'text' | 'number' | 'date' | 'datetime-local';
-  placeholder?: string;
-  disabled?: boolean;
-  isInvalid?: boolean;
-  min?: string;
-};
-
-export type InputProps = Omit<TextInputProps, 'controlled'> & {
-  register?: UseFormRegisterReturn;
+export type TextInputProps = RNTextInputProps & {
+  label: string;
+  leftIcon?: IconName;
+  rightIcon?: IconName;
 };

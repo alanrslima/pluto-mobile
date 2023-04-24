@@ -1,5 +1,5 @@
 import React from 'react';
-import {AccountsList} from '../../../components/organisms/AccountsList';
+import {AccountsList} from '../../../components/templates/AccountsList';
 import {Screen} from '../../../components/templates/Screen';
 import {AccountsListPageProps} from './types';
 
