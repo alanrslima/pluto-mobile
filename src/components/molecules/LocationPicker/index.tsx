@@ -1,11 +1,11 @@
 import React, {useRef} from 'react';
 import {View} from 'react-native';
 import {ModalLocation} from '../../organisms/ModalLocation';
-import {ModalLocationHandle} from '../../organisms/ModalLocation/types';
 import {TextInput} from '../../atoms/TextInput';
+import {ModalHandle} from '../../templates/Modal/types';
 
 export function LocationPicker() {
-  const modalRef = useRef<ModalLocationHandle>(null);
+  const modalRef = useRef<ModalHandle>(null);
 
   function showModal() {
     modalRef.current?.show();
@@ -13,7 +13,12 @@ export function LocationPicker() {
 
   return (
     <View>
-      <TextInput label="Localização" editable={false} onPressIn={showModal} />
+      <TextInput
+        placeholder="Selecione uma localização"
+        label="Localização"
+        editable={false}
+        onPressIn={showModal}
+      />
       <ModalLocation ref={modalRef} />
     </View>
   );

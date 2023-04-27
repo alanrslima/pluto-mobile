@@ -15,5 +15,8 @@ export const simpleButtonStyles = (theme: ThemeProps) => {
       color: theme.colors.white,
       fontSize: theme.fontSizes.text_sm,
     },
+    wrapperIcon: {
+      marginRight: theme.spaces[4],
+    },
   });
 };

@@ -6,8 +6,9 @@ import {valueInputStyles} from './styles';
 import {useTheme} from '../../../hooks/useTheme';
 import {Text} from '../../atoms/Text';
 import {SimpleButton} from '../../atoms/SimpleButton';
+import {ValueInputProps} from './types';
 
-export function ValueInput() {
+export function ValueInput(props: ValueInputProps) {
   const [isExpense, setIsExpense] = useState(true);
   const styles = useStyle(valueInputStyles);
   const {colors} = useTheme();
@@ -24,6 +25,7 @@ export function ValueInput() {
       <View style={styles.row}>
         <Text style={[styles.signal, {color}]}>R$</Text>
         <TextInput
+          {...props}
           placeholderTextColor={color}
           placeholder="0,00"
           keyboardAppearance="dark"
@@ -35,6 +37,7 @@ export function ValueInput() {
           title={isExpense ? 'Despesa' : 'Receita'}
           onPress={handleType}
           color={color}
+          icon="shuffle"
         />
       </View>
     </View>

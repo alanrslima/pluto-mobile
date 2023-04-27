@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, ScrollView, View} from 'react-native';
+import {Image, ScrollView} from 'react-native';
 import {Card} from '../../molecules/Card';
 import {SectionHeader} from '../../atoms/SectionHeader';
 import {useStyle} from '../../../hooks/useStyle';
@@ -30,7 +30,7 @@ export function TransactionDetail() {
       <Spacer height={spaces[4]} />
       <Text style={[styles.value, {color: colors.negative300}]}>-R$ 89,90</Text>
       <Spacer height={spaces[4]} />
-      <Card title="Nubank" hexColor="#9C44DC" type="wefew" value={100} />
+      <Card title="Nubank" hexColor="#9C44DC" type="Conta corrente" />
 
       <SectionHeader title="Localização" />
 

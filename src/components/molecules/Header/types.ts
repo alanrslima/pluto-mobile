@@ -4,4 +4,5 @@ export type HeaderProps = {
   leftButtons?: HeaderButtonProps[];
   rightButtons?: HeaderButtonProps[];
   title?: string;
+  useStatusBarHeight?: boolean;
 };

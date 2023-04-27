@@ -4,4 +4,10 @@ export type IconProps = {
   color?: string;
 };
 
-export type IconName = 'plus' | 'chevron-left' | 'edit-2';
+export type IconName =
+  | 'plus'
+  | 'chevron-left'
+  | 'chevron-right'
+  | 'edit-2'
+  | 'x'
+  | 'shuffle';

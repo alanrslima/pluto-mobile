@@ -27,9 +27,11 @@ export function Card({title, value, type, hexColor, onPress}: CardProps) {
           <Text style={styles.type}>{type}</Text>
         </View>
 
-        <Text style={styles.signal}>
-          R$ <Text style={styles.value}>{formatter.format(value)}</Text>
-        </Text>
+        {value !== undefined && (
+          <Text style={styles.signal}>
+            R$ <Text style={styles.value}>{formatter.format(value)}</Text>
+          </Text>
+        )}
       </LinearGradient>
     </TouchableOpacity>
   );

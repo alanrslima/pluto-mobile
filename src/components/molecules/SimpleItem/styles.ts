@@ -22,28 +22,15 @@ export const simpleItemStyles = (theme: ThemeProps) => {
       fontSize: theme.fontSizes.text_sm,
       marginTop: theme.spaces[2],
     },
-    value: {
-      color: theme.colors.positive300,
-      fontSize: theme.fontSizes.text_md,
-      fontFamily: theme.fonts.poppins_bold,
-    },
     wrapper: {
       flexDirection: 'row',
       padding: theme.spaces[4],
       backgroundColor: theme.colors.whiteA50,
       borderRadius: theme.radii[2],
+      alignItems: 'center',
     },
     content: {
       flex: 1,
-      justifyContent: 'center',
-    },
-    subValue: {
-      color: theme.colors.whiteA600,
-      marginTop: theme.spaces[2],
-    },
-    contentRight: {
-      justifyContent: 'center',
-      alignItems: 'flex-end',
     },
   });
 };

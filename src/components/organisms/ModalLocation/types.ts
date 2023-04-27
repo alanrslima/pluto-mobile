@@ -1,6 +1,5 @@
+import {ModalHandle} from '../../templates/Modal/types';
+
 export type ModalLocationProps = {};
 
-export type ModalLocationHandle = {
-  show: () => void;
-  hide: () => void;
-};
+export type ModalLocationHandle = ModalHandle;

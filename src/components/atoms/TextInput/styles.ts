@@ -3,7 +3,9 @@ import {ThemeProps} from '../../../types/Theme';
 
 export const textInputStyles = (theme: ThemeProps) => {
   return StyleSheet.create({
-    wrapper: {},
+    wrapper: {
+      paddingTop: theme.spaces[5],
+    },
     input: {
       backgroundColor: theme.colors.whiteA100,
       borderRadius: theme.radii[2],

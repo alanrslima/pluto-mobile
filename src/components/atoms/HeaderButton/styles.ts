@@ -8,7 +8,7 @@ export const headerButtonStyles = (theme: ThemeProps) => {
       width: theme.sizes[10],
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: theme.colors.whiteA100,
+      backgroundColor: theme.colors.whiteA50,
       borderRadius: theme.radii[1],
     },
   });

@@ -5,8 +5,18 @@ import {TransactionsFormPageProps} from './types';
 
 export function TransactionsFormPage({navigation}: TransactionsFormPageProps) {
   return (
-    <Screen navigation={navigation}>
-      <TransactionForm />
+    <Screen header={{title: 'Transação'}} navigation={navigation}>
+      <TransactionForm
+        defaultValues={{
+          title: 'Teste',
+          account: {hexColor: '#9C44DC', id: '1', title: 'NuBank', value: 100},
+          category: {id: '1', name: 'Saúde'},
+          date: new Date(),
+          description: 'Teste',
+          id: '123',
+          value: 1000,
+        }}
+      />
     </Screen>
   );
 }
