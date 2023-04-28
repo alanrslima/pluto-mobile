@@ -14,7 +14,6 @@ export function AccountsListPage({navigation}: AccountsListPageProps) {
 
   return (
     <Screen
-      navigation={navigation}
       header={{
         title: 'Carteira',
         rightButtons: [{name: 'plus', onPress: onPressAddAccount}],

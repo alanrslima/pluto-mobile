@@ -14,7 +14,7 @@ export const ModalAccounts = forwardRef<
   const styles = useStyle(modalCardsStyles);
   const cards: Account[] = [
     {id: '1', title: 'NuBank', hexColor: '#9C44DC', value: 100},
-    {id: '2', title: 'C6', hexColor: '#000000', value: 100},
+    {id: '2', title: 'C6', hexColor: '#222222', value: 100},
   ];
 
   function onPressItem(account: Account) {

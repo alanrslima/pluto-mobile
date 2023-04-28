@@ -5,8 +5,31 @@ import {TransactionsStack} from './TransactionsStack';
 import {AccountsStack} from './AccountsStack';
 import {useTheme} from '../hooks/useTheme';
 import {MenuStack} from './MenuStack';
+import {TransactionsNewPage} from '../pages/Transactions/New';
+import {Icon} from '../components/atoms/Icon';
 
 const Tab = createBottomTabNavigator();
+
+export type RootStackParamList = {
+  AccountsListPage: undefined;
+  AccountsCreatePage: undefined;
+  AccountsDetailPage: {accountId: string};
+
+  MenuListPage: undefined;
+
+  TransactionsListPage: undefined;
+  TransactionsDetailPage: {transactionId: string};
+  TransactionsEditPage: {transactionId: string} | undefined;
+  TransactionsNewPage: undefined;
+};
+
+function HomeIcon() {
+  return <Icon name="chevron-left" color="white" />;
+}
+
+function TransactionsIcon() {
+  return <Icon name="shuffle" color="white" />;
+}
 
 export default function Routes() {
   const {colors} = useTheme();
@@ -21,13 +44,38 @@ export default function Routes() {
             borderTopColor: colors.whiteA100,
             shadowColor: colors.black,
             shadowOffset: {width: 0, height: 0},
-            shadowOpacity: 0.7,
+            shadowOpacity: 0.2,
             shadowRadius: 10,
           },
         }}>
-        <Tab.Screen name="Transactions" component={TransactionsStack} />
-        <Tab.Screen name="Accounts" component={AccountsStack} />
-        <Tab.Screen name="Menu" component={MenuStack} />
+        <Tab.Screen
+          name="Home"
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: HomeIcon,
+          }}
+          component={TransactionsStack}
+        />
+        <Tab.Screen
+          name="Transactions"
+          options={{tabBarLabel: 'Transações', tabBarIcon: TransactionsIcon}}
+          component={TransactionsStack}
+        />
+        <Tab.Screen
+          name="TransactionsNewPage"
+          component={TransactionsNewPage}
+          options={{tabBarLabel: 'Adicionar'}}
+        />
+        <Tab.Screen
+          name="Accounts"
+          options={{tabBarLabel: 'Contas'}}
+          component={AccountsStack}
+        />
+        <Tab.Screen
+          name="Menu"
+          options={{tabBarLabel: 'Menu'}}
+          component={MenuStack}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

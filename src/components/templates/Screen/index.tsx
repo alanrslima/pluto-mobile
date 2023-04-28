@@ -22,7 +22,7 @@ export function Screen(props: ScreenProps) {
       <Header
         {...props.header}
         leftButtons={
-          props.navigation.canGoBack()
+          props.navigation && props.navigation.canGoBack()
             ? [{name: 'chevron-left', onPress: props.navigation.goBack}]
             : undefined
         }

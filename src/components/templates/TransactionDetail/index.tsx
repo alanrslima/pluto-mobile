@@ -41,6 +41,7 @@ export function TransactionDetail() {
         porro reiciendis totam quis, eum illum possimus dolore voluptatum
         repudiandae?
       </Text>
+      <Spacer height={spaces[8]} />
       <Button title="Deletar transação" color={colors.negative500} />
     </ScrollView>
   );

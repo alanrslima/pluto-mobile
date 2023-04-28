@@ -3,4 +3,5 @@ export type Account = {
   title: string;
   value: number;
   hexColor: string;
+  type?: string;
 };

@@ -14,7 +14,7 @@ export function TransactionsDetailPage({
           {
             name: 'edit-2',
             onPress: () =>
-              navigation.navigate('TransactionsFormPage', {
+              navigation.navigate('TransactionsEditPage', {
                 transactionId: '13',
               }),
           },

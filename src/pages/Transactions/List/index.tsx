@@ -10,7 +10,7 @@ export function TransactionsListPage({navigation}: TransactionsListPageProps) {
   }
 
   return (
-    <Screen navigation={navigation} header={{title: 'Transações'}}>
+    <Screen header={{title: 'Transações'}}>
       <MonthPicker />
       <TransactionsList onPressTransaction={onPressTransaction} />
     </Screen>

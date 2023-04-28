@@ -4,8 +4,12 @@ import {MenuListPageProps} from './types';
 import {SectionList} from 'react-native';
 import {SimpleItem} from '../../../components/molecules/SimpleItem';
 import {SectionHeader} from '../../../components/atoms/SectionHeader';
+import {useStyle} from '../../../hooks/useStyle';
+import {menuStyles} from './styles';
 
 export function MenuListPage({navigation}: MenuListPageProps) {
+  const styles = useStyle(menuStyles);
+
   const sections = [
     {
       title: 'Funcionalidades',
@@ -50,14 +54,17 @@ export function MenuListPage({navigation}: MenuListPageProps) {
   ];
 
   return (
-    <Screen navigation={navigation}>
+    <Screen header={{title: 'Menu'}}>
       <SectionList
         sections={sections}
         renderSectionHeader={({section: {title}}) => (
           <SectionHeader title={title} />
         )}
+        contentContainerStyle={styles.wrapper}
         keyExtractor={item => `${item.id}`}
-        renderItem={() => <SimpleItem />}
+        renderItem={({item}) => (
+          <SimpleItem title={item.title} description={item.description} />
+        )}
       />
     </Screen>
   );

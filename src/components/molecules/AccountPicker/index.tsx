@@ -8,9 +8,11 @@ import {Label} from '../../atoms/Label';
 import {Card} from '../Card';
 import {useStyle} from '../../../hooks/useStyle';
 import {accountPickerStyles} from './styles';
+import {useTheme} from '../../../hooks/useTheme';
 
 export function AccountPicker({onSelect, value}: AccountPickerProps) {
   const styles = useStyle(accountPickerStyles);
+  const {colors} = useTheme();
   const modalRef = useRef<ModalHandle>(null);
 
   function showModal() {
@@ -30,9 +32,10 @@ export function AccountPicker({onSelect, value}: AccountPickerProps) {
     <View style={styles.wrapper}>
       <Label>Conta</Label>
       <Card
-        hexColor={value ? value?.hexColor : '#555555'}
+        hexColor={value ? value?.hexColor : colors.primary}
         title={value ? value.title : 'Selecione uma conta'}
         onPress={showModal}
+        type={value ? value.type : ''}
       />
       <ModalAccounts onSelect={onSelectAccount} ref={modalRef} />
     </View>
