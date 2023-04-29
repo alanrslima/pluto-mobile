@@ -29,6 +29,14 @@ export function TransactionForm({defaultValues}: TransactionFormProps) {
     setForm(prevState => ({...prevState, account: value}));
   }
 
+  function onHandleValue(value: string) {
+    setForm(prevState => ({...prevState, value: Number(value)}));
+  }
+
+  function onHandleTitle(value: string) {
+    setForm(prevState => ({...prevState, title: value}));
+  }
+
   function showSuccessMessage() {
     bottomSheetRef.current?.show({
       title: 'Ops!',
@@ -42,18 +50,27 @@ export function TransactionForm({defaultValues}: TransactionFormProps) {
     showSuccessMessage();
   }
 
+  function isDisabled() {
+    return (
+      !!form?.value || !!form?.title || !!form?.category || !!form?.account
+    );
+  }
+
   return (
-    <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <ScrollView contentContainerStyle={styles.wrapper}>
         <ValueInput
+          onChangeText={onHandleValue}
           defaultValue={
             form?.value !== undefined ? String(form?.value) : undefined
           }
         />
         <TextInput
           defaultValue={form?.title}
-          label="Nome"
-          placeholder="Nome da transação"
+          label="Título"
+          value={form?.title}
+          onChangeText={onHandleTitle}
+          placeholder="Título da transação"
         />
         <CategoryPicker
           value={form?.category?.name}
@@ -62,7 +79,12 @@ export function TransactionForm({defaultValues}: TransactionFormProps) {
         <AccountPicker onSelect={onSelectAccount} value={form?.account} />
         <Spacer height={spaces[8]} />
       </ScrollView>
-      <Button onPress={onSubmit} title="Salvar transação" />
+      <Button
+        // disabled={isDisabled()}
+        onPress={onSubmit}
+        title="Salvar transação"
+      />
+
       <BottomSheet ref={bottomSheetRef} />
     </KeyboardAvoidingView>
   );

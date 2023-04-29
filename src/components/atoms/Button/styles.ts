@@ -15,5 +15,11 @@ export const buttonStyles = (theme: ThemeProps) => {
       color: theme.colors.white,
       fontFamily: theme.fonts.poppins_semiBold,
     },
+    wrapperDisabled: {
+      backgroundColor: theme.colors.whiteA100,
+    },
+    textDisabled: {
+      color: theme.colors.whiteA300,
+    },
   });
 };

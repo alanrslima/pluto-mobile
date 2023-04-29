@@ -16,7 +16,7 @@ export const valueInputStyles = (theme: ThemeProps) => {
     },
     signal: {
       color: theme.colors.white,
-      fontSize: theme.fontSizes.display_md,
+      fontSize: theme.fontSizes.text_lg,
       fontFamily: theme.fonts.poppins_bold,
     },
   });

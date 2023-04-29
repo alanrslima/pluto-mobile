@@ -1,13 +1,16 @@
 import {StyleSheet} from 'react-native';
 import {ThemeProps} from '../../../types/Theme';
 
-export const transactionFormStyles = (theme: ThemeProps) => {
+export const feedStyles = (theme: ThemeProps) => {
   return StyleSheet.create({
-    wrapper: {
-      padding: theme.spaces[6],
-    },
     container: {
       flex: 1,
+    },
+    wrapperScroll: {
+      paddingHorizontal: theme.spaces[6],
+    },
+    row: {
+      flexDirection: 'row',
     },
   });
 };

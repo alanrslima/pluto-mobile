@@ -7,6 +7,7 @@ import {useTheme} from '../hooks/useTheme';
 import {MenuStack} from './MenuStack';
 import {TransactionsNewPage} from '../pages/Transactions/New';
 import {Icon} from '../components/atoms/Icon';
+import {HomeFeedPage} from '../pages/Home/Feed';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +22,8 @@ export type RootStackParamList = {
   TransactionsDetailPage: {transactionId: string};
   TransactionsEditPage: {transactionId: string} | undefined;
   TransactionsNewPage: undefined;
+
+  HomeFeedPageProps: undefined;
 };
 
 function HomeIcon() {
@@ -54,7 +57,7 @@ export default function Routes() {
             tabBarLabel: 'Home',
             tabBarIcon: HomeIcon,
           }}
-          component={TransactionsStack}
+          component={HomeFeedPage}
         />
         <Tab.Screen
           name="Transactions"
