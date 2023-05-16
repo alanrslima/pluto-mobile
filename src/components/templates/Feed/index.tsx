@@ -11,6 +11,7 @@ import {VictoryBar, VictoryChart, VictoryTheme} from 'victory-native';
 
 export function Feed() {
   const styles = useStyle(feedStyles);
+
   const data = [
     {quarter: 1, earnings: 13000},
     {quarter: 2, earnings: 16500},

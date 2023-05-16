@@ -15,7 +15,7 @@ export function Card({title, value, type, hexColor, onPress}: CardProps) {
   const lighter = ColorsHelper.newShade(hexColor, 40);
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity disabled={!onPress} onPress={onPress}>
       <LinearGradient
         colors={[darker, hexColor, lighter]}
         locations={[0, 0.6, 1]}

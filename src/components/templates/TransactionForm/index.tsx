@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {KeyboardAvoidingView, ScrollView} from 'react-native';
+import {KeyboardAvoidingView, ScrollView, View} from 'react-native';
 import {TextInput} from '../../atoms/TextInput';
 import {Spacer} from '../../atoms/Spacer';
 import {useTheme} from '../../../hooks/useTheme';
@@ -79,11 +79,13 @@ export function TransactionForm({defaultValues}: TransactionFormProps) {
         <AccountPicker onSelect={onSelectAccount} value={form?.account} />
         <Spacer height={spaces[8]} />
       </ScrollView>
-      <Button
-        // disabled={isDisabled()}
-        onPress={onSubmit}
-        title="Salvar transação"
-      />
+      <View style={styles.wrapperButton}>
+        <Button
+          // disabled={isDisabled()}
+          onPress={onSubmit}
+          title="Salvar transação"
+        />
+      </View>
 
       <BottomSheet ref={bottomSheetRef} />
     </KeyboardAvoidingView>

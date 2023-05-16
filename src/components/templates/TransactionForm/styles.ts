@@ -9,5 +9,9 @@ export const transactionFormStyles = (theme: ThemeProps) => {
     container: {
       flex: 1,
     },
+    wrapperButton: {
+      paddingHorizontal: theme.spaces[6],
+      paddingBottom: theme.spaces[6],
+    },
   });
 };

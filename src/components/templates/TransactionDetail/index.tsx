@@ -9,6 +9,7 @@ import {Text} from '../../atoms/Text';
 import {Button} from '../../atoms/Button';
 import {useTheme} from '../../../hooks/useTheme';
 import {Spacer} from '../../atoms/Spacer';
+import {MapCard} from '../../molecules/MapCard';
 
 export function TransactionDetail() {
   const styles = useStyle(transactionDetailStyles);
@@ -33,7 +34,7 @@ export function TransactionDetail() {
       <Card title="Nubank" hexColor="#9C44DC" type="Conta corrente" />
 
       <SectionHeader title="Localização" />
-
+      <MapCard />
       <SectionHeader title="Notas" />
       <Text style={styles.description}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint in,
