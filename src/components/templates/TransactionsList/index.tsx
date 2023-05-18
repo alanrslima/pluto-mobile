@@ -22,6 +22,29 @@ export function TransactionsList({onPressTransaction}: TransactionsListProps) {
           value: 25,
           description: '',
         },
+        {
+          account: {hexColor: 'red', id: '21312', title: 'C6', value: 100},
+          category: {id: '213', name: 'Alimentação'},
+          date: new Date(),
+          id: '12',
+          title: 'Burguer King',
+          value: -25,
+          description: '',
+        },
+      ],
+    },
+    {
+      title: '03 de fev, 2023',
+      data: [
+        {
+          account: {hexColor: 'red', id: '21312', title: 'C6', value: 100},
+          category: {id: '213', name: 'Alimentação'},
+          date: new Date(),
+          id: '13',
+          title: 'Burguer King',
+          value: 25,
+          description: '',
+        },
       ],
     },
   ];
@@ -46,7 +69,7 @@ export function TransactionsList({onPressTransaction}: TransactionsListProps) {
           />
         </View>
       )}
-      keyExtractor={item => `${item}`}
+      keyExtractor={item => `${item.id}`}
       renderSectionHeader={({section: {title}}) => (
         <SectionHeader title={title} />
       )}

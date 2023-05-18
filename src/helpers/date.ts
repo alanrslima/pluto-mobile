@@ -9,21 +9,22 @@ export class DateHelpers {
   getTransactionsRange(): Month[] {
     var datesArray: Month[] = [];
     const now = new Date();
+    const range = 2;
 
     let startDate = new Date(now.getFullYear(), now.getMonth(), 1);
-    startDate.setFullYear(startDate.getFullYear() - 10);
+    startDate.setFullYear(startDate.getFullYear() - range);
 
     let endDate = new Date(now.getFullYear(), now.getMonth(), 1);
-    endDate.setFullYear(endDate.getFullYear() + 10);
+    endDate.setFullYear(endDate.getFullYear() + range);
 
     var currentDate = startDate;
     while (currentDate <= endDate) {
       const year = currentDate.getFullYear();
       const month = currentDate.getMonth();
       datesArray.push({
-        id: `${year}-${month}`,
+        id: `${year}-${month + 1}`,
         label: '',
-        startAt: currentDate,
+        startAt: new Date(currentDate),
         endAt: new Date(year, month + 1, 0),
       });
       currentDate = this.addMonths(currentDate, 1);

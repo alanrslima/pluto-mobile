@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Image, ScrollView} from 'react-native';
 import {Card} from '../../molecules/Card';
 import {SectionHeader} from '../../atoms/SectionHeader';
@@ -10,10 +10,21 @@ import {Button} from '../../atoms/Button';
 import {useTheme} from '../../../hooks/useTheme';
 import {Spacer} from '../../atoms/Spacer';
 import {MapCard} from '../../molecules/MapCard';
+import {BottomSheet} from '../BottomSheet';
+import {BottomSheetHandle} from '../BottomSheet/types';
 
 export function TransactionDetail() {
   const styles = useStyle(transactionDetailStyles);
   const {colors, spaces} = useTheme();
+
+  const bottomSheetRef = useRef<BottomSheetHandle>(null);
+
+  function onPressDelete() {
+    bottomSheetRef.current?.show({
+      description: 'Você tem certeza que deseja deletar esta transação?',
+      title: 'Apagar',
+    });
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.wrapper}>
@@ -43,7 +54,12 @@ export function TransactionDetail() {
         repudiandae?
       </Text>
       <Spacer height={spaces[8]} />
-      <Button title="Deletar transação" color={colors.negative500} />
+      <Button
+        onPress={onPressDelete}
+        title="Deletar transação"
+        color={colors.negative500}
+      />
+      <BottomSheet ref={bottomSheetRef} />
     </ScrollView>
   );
 }

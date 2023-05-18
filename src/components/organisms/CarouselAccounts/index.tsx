@@ -21,6 +21,7 @@ export function CarouselAccounts() {
         onScroll={evt =>
           setActivedIndex(Math.round(evt.nativeEvent.contentOffset.x / width))
         }
+        scrollEventThrottle={3}
         showsHorizontalScrollIndicator={false}
         pagingEnabled>
         {accounts.map(account => (
