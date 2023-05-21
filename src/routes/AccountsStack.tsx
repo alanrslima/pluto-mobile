@@ -3,7 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AccountsListPage} from '../pages/Accounts/List';
 import {AccountsDetailPage} from '../pages/Accounts/Detail';
 import {AccountsCreatePage} from '../pages/Accounts/Create';
-import {RootStackParamList} from '.';
+import {RootStackParamList} from '../types/RootStack';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

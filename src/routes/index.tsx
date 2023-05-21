@@ -8,23 +8,9 @@ import {MenuStack} from './MenuStack';
 import {TransactionsNewPage} from '../pages/Transactions/New';
 import {Icon} from '../components/atoms/Icon';
 import {HomeFeedPage} from '../pages/Home/Feed';
+import {PublicStack} from './PublicStack';
 
 const Tab = createBottomTabNavigator();
-
-export type RootStackParamList = {
-  AccountsListPage: undefined;
-  AccountsCreatePage: undefined;
-  AccountsDetailPage: {accountId: string};
-
-  MenuListPage: undefined;
-
-  TransactionsListPage: undefined;
-  TransactionsDetailPage: {transactionId: string};
-  TransactionsEditPage: {transactionId: string} | undefined;
-  TransactionsNewPage: undefined;
-
-  HomeFeedPageProps: undefined;
-};
 
 function HomeIcon() {
   return <Icon name="chevron-left" color="white" />;
@@ -39,7 +25,8 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      <PublicStack />
+      {/* <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
@@ -79,7 +66,7 @@ export default function Routes() {
           options={{tabBarLabel: 'Menu'}}
           component={MenuStack}
         />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
     </NavigationContainer>
   );
 }

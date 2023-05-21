@@ -4,4 +4,5 @@ export type ButtonProps = {
   color?: string;
   textColor?: string;
   disabled?: boolean;
+  isLoading?: boolean;
 };

@@ -10,4 +10,6 @@ export type IconName =
   | 'chevron-right'
   | 'edit-2'
   | 'x'
+  | 'eye'
+  | 'eye-off'
   | 'shuffle';
