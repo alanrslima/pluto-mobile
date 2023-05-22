@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {ThemeProps} from '../../../types/Theme';
-import Constants from 'expo-constants';
+import {DeviceProps} from '../../../types/Device';
 
 const HEADER_HEIGHT = 60;
 
-export const headerStyles = (theme: ThemeProps) => {
+export const headerStyles = (theme: ThemeProps, device: DeviceProps) => {
   return StyleSheet.create({
     container: {
       height: HEADER_HEIGHT,
@@ -13,8 +13,8 @@ export const headerStyles = (theme: ThemeProps) => {
       paddingHorizontal: theme.spaces[6],
     },
     statusBarHeight: {
-      paddingTop: Constants.statusBarHeight,
-      height: Constants.statusBarHeight + HEADER_HEIGHT,
+      paddingTop: device.statusBarHeight,
+      height: device.statusBarHeight + HEADER_HEIGHT,
     },
     title: {
       flex: 1,

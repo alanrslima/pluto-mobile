@@ -4,18 +4,18 @@ import {PublicSignUpPageProps} from './types';
 import {SignUpForm} from '../../../components/templates/SignUpForm';
 import {SignUpFormDataProps} from '../../../components/templates/SignUpForm/types';
 import {useCreateUser} from '../../../services/user/useCreateUser';
-import {useAlert} from '../../../hooks/useAlert';
-import {errorHandler} from '../../../helpers/errorHandler';
+import {useError} from '../../../hooks/useError';
 
 export function PublicSignUpPage({navigation}: PublicSignUpPageProps) {
   const createUser = useCreateUser();
-  const alertRef = useAlert();
+  const {handle} = useError();
 
   async function onSubmit(data: SignUpFormDataProps): Promise<void> {
     try {
       await createUser.mutateAsync(data);
+      navigation.navigate('PublicSignInPage');
     } catch (error: any) {
-      errorHandler(error, alertRef);
+      handle(error);
     }
   }
 

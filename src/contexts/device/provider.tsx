@@ -4,9 +4,21 @@ import {View, StyleSheet, LayoutChangeEvent, Dimensions} from 'react-native';
 
 import {DeviceProviderProps} from './types';
 import {DeviceProps, OrientationEnum, SizeEnum} from '../../types/Device';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const DeviceProvider: React.FC<DeviceProviderProps> = ({children}) => {
-  const [device, setDevice] = useState<DeviceProps>({} as DeviceProps);
+  const [device, setDevice] = useState<DeviceProps>({
+    bottomSpace: 0,
+    statusBarHeight: 0,
+    fontScale: 0,
+    height: 0,
+    width: 0,
+    isDarkMode: false,
+    orientation: 0,
+    scale: 0,
+    size: 0,
+  });
+  const {bottom, top} = useSafeAreaInsets();
 
   const calculateSize = (width: number) => {
     if (width > 1000) {
@@ -32,8 +44,8 @@ export const DeviceProvider: React.FC<DeviceProviderProps> = ({children}) => {
       height,
       scale: windowDimension.scale,
       fontScale: windowDimension.fontScale,
-      statusBarHeight: 0,
-      bottomSpace: 0,
+      statusBarHeight: top,
+      bottomSpace: bottom,
       isDarkMode: true,
     };
 

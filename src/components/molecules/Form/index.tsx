@@ -87,7 +87,7 @@ export function Form(props: FormProps) {
           isLoading={isLoading}
           onPress={onSubmit}
           disabled={props.isDisabled}
-          title="Entrar"
+          title={props.onSubmitTitle || 'Enviar'}
         />
       </View>
     </KeyboardAvoidingView>

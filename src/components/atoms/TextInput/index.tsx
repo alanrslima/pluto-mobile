@@ -29,6 +29,7 @@ export function TextInput({label, type, error, ...rest}: TextInputProps) {
       <View style={[styles.container, !!error && styles.containerError]}>
         <RNTextInput
           keyboardAppearance="dark"
+          accessibilityHint={label}
           secureTextEntry={secureTextEntry}
           placeholderTextColor={colors.whiteA300}
           style={[styles.input, rest.multiline && styles.inputMultiline]}

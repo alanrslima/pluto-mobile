@@ -21,13 +21,14 @@ export function SignUpForm(props: SignUpFormProps) {
     !email.length || !password.length || !firstName.length || !lastName.length;
 
   return (
-    <Form onSubmit={onSubmit} isDisabled={isDisabled}>
+    <Form onSubmitTitle="Cadastrar" onSubmit={onSubmit} isDisabled={isDisabled}>
       <View style={styles.row}>
         <View style={styles.rowItem}>
           <TextInput
             value={firstName}
             onChangeText={setFirstName}
             autoFocus
+            placeholder="Seu nome"
             label="Nome"
           />
         </View>
@@ -37,15 +38,25 @@ export function SignUpForm(props: SignUpFormProps) {
             value={lastName}
             onChangeText={setLastName}
             label="Sobrenome"
+            placeholder="Seu sobrenome"
           />
         </View>
       </View>
-      <TextInput value={email} onChangeText={setEmail} label="E-mail" />
+      <TextInput
+        value={email}
+        keyboardType="email-address"
+        onChangeText={setEmail}
+        autoCapitalize="none"
+        placeholder="email@email.com"
+        label="E-mail"
+      />
       <TextInput
         type="password"
         value={password}
+        keyboardType="visible-password"
         onChangeText={setPassword}
         label="Senha"
+        placeholder="Uma senha segura"
       />
     </Form>
   );

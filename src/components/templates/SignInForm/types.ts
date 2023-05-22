@@ -1,3 +1,5 @@
+export type SignInFormDataProps = {email: string; password: string};
+
 export type SignInFormProps = {
-  onSubmit: (data: {email: string; password: string}) => Promise<void>;
+  onSubmit: (data: SignInFormDataProps) => Promise<void>;
 };

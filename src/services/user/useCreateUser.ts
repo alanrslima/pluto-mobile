@@ -19,8 +19,7 @@ export function useCreateUser() {
     },
     {
       retry: false,
-      onSuccess: data => {
-        console.log('On sucesss', data);
+      onSuccess: _ => {
         // queryClient.setQueryData(Keys.list(), (old: Account[]): Account[] => {
         //   const newSubDriversList = [...(old || []), data];
         //   return newSubDriversList;

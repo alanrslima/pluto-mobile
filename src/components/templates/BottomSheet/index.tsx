@@ -4,7 +4,6 @@ import {useStyle} from '../../../hooks/useStyle';
 import {bottomSheetStyles} from './styles';
 import {BottomSheetHandle, BottomSheetProps} from './types';
 import {Header} from '../../molecules/Header';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Text} from '../../atoms/Text';
 import {Button} from '../../atoms/Button';
 import {Spacer} from '../../atoms/Spacer';
@@ -14,7 +13,6 @@ export const BottomSheet = forwardRef<BottomSheetHandle, BottomSheetProps>(
   (props, ref) => {
     const [visible, setVisible] = useState(false);
     const styles = useStyle(bottomSheetStyles);
-    const {bottom} = useSafeAreaInsets();
     const {spaces, colors} = useTheme();
     const [values, setValues] = useState<BottomSheetProps>();
 
@@ -42,7 +40,7 @@ export const BottomSheet = forwardRef<BottomSheetHandle, BottomSheetProps>(
           <TouchableWithoutFeedback onPress={hide}>
             <View style={styles.full} />
           </TouchableWithoutFeedback>
-          <View style={[styles.container, {paddingBottom: bottom}]}>
+          <View style={styles.container}>
             <Header
               rightButtons={[{name: 'x', onPress: hide}]}
               useStatusBarHeight={false}

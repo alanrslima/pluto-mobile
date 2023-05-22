@@ -36,6 +36,7 @@ export const textInputStyles = (theme: ThemeProps) => {
       marginTop: theme.spaces[3],
       color: theme.colors.negative300,
       textAlign: 'right',
+      fontSize: theme.fontSizes.text_xs,
     },
   });
 };

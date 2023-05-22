@@ -1,7 +1,8 @@
 import {StyleSheet} from 'react-native';
 import {ThemeProps} from '../../../types/Theme';
+import {DeviceProps} from '../../../types/Device';
 
-export const bottomSheetStyles = (theme: ThemeProps) => {
+export const bottomSheetStyles = (theme: ThemeProps, device: DeviceProps) => {
   return StyleSheet.create({
     full: {
       flex: 1,
@@ -16,9 +17,11 @@ export const bottomSheetStyles = (theme: ThemeProps) => {
       backgroundColor: theme.colors.negative600,
       borderTopLeftRadius: theme.radii[5],
       borderTopRightRadius: theme.radii[5],
+      paddingBottom: device.bottomSpace,
     },
     content: {
-      padding: theme.spaces[6],
+      paddingHorizontal: theme.spaces[6],
+      paddingTop: theme.spaces[2],
     },
     description: {
       color: theme.colors.whiteA800,

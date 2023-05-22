@@ -14,18 +14,21 @@ export function SignInForm(props: SignInFormProps) {
   const isDisabled = !email.length || !password.length;
 
   return (
-    <Form onSubmit={onSubmit} isDisabled={isDisabled}>
+    <Form onSubmitTitle="Acessar" onSubmit={onSubmit} isDisabled={isDisabled}>
       <TextInput
         value={email}
         onChangeText={setEmail}
         autoFocus
         label="E-mail"
+        autoCapitalize="none"
+        placeholder="email@email.com"
       />
       <TextInput
         type="password"
         value={password}
         onChangeText={setPassword}
         label="Senha"
+        placeholder="Sua senha"
       />
     </Form>
   );
