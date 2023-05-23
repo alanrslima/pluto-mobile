@@ -6,9 +6,11 @@ import {SimpleItem} from '../../../components/molecules/SimpleItem';
 import {SectionHeader} from '../../../components/atoms/SectionHeader';
 import {useStyle} from '../../../hooks/useStyle';
 import {menuStyles} from './styles';
+import {useLogout} from '../../../services/auth/useLogout';
 
 export function MenuListPage({navigation}: MenuListPageProps) {
   const styles = useStyle(menuStyles);
+  const {mutateAsync} = useLogout();
 
   const sections = [
     {
@@ -65,6 +67,13 @@ export function MenuListPage({navigation}: MenuListPageProps) {
         renderItem={({item}) => (
           <SimpleItem title={item.title} description={item.description} />
         )}
+      />
+      <SimpleItem
+        title="Logout"
+        description="Sair do aplicativo"
+        onPress={() => {
+          mutateAsync();
+        }}
       />
     </Screen>
   );

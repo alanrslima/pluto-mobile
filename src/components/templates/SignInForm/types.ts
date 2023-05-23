@@ -1,5 +1,5 @@
-export type SignInFormDataProps = {email: string; password: string};
+import {Credentials} from '../../../types/Credentials';
 
 export type SignInFormProps = {
-  onSubmit: (data: SignInFormDataProps) => Promise<void>;
+  onSubmit: (data: Credentials) => Promise<void>;
 };

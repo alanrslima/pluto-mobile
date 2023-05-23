@@ -7,7 +7,7 @@ import {addTokenInterceptor} from '../interceptors/tokenInterceptor';
 export function createApi(): AxiosInstance {
   return axios.create({
     // baseURL: process.env.NEXT_PUBLIC_API_URL,
-    baseURL: 'http://localhost:3000/api',
+    baseURL: 'http://192.168.160.7:3000/api',
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',

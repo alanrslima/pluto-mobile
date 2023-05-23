@@ -8,9 +8,9 @@ export const landingStyles = (theme: ThemeProps, device: DeviceProps) => {
       flex: 1,
       backgroundColor: theme.colors.background,
       justifyContent: 'flex-end',
-      padding: theme.spaces[6],
+      paddingHorizontal: theme.spaces[6],
       paddingTop: device.statusBarHeight,
-      paddingBottom: device.bottomSpace,
+      paddingBottom: device.bottomSpace + theme.spaces[6],
     },
     text: {
       fontSize: theme.fontSizes.display_md,

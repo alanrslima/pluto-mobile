@@ -10,7 +10,8 @@ export const formStyles = (theme: ThemeProps) => {
       paddingHorizontal: theme.spaces[6],
     },
     wrapperButton: {
-      padding: theme.spaces[6],
+      paddingHorizontal: theme.spaces[6],
+      paddingBottom: theme.spaces[6],
     },
   });
 };
