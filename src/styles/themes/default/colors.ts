@@ -1,7 +1,7 @@
 export const colors = {
   white: '#ffffff',
   black: '#000000',
-  background: '#110B3F',
+  background: '#090623',
   primary: '#8063BB',
 
   whiteA50: 'rgba(255,255,255,0.05)',

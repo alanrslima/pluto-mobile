@@ -1,3 +1,5 @@
+import {Account} from '../../../types/Account';
+
 export type AccountsListProps = {
-  onPressAccount: (accountId: string) => void;
+  onPressAccount: (account: Account) => void;
 };

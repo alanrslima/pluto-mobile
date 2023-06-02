@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {TextInput as RNTextInput, View} from 'react-native';
 import {TextInput} from '../../atoms/TextInput';
 import {useStyle} from '../../../hooks/useStyle';
 import {signInFormStyles} from './styles';
@@ -12,6 +12,11 @@ export function SignUpForm(props: SignUpFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const styles = useStyle(signInFormStyles);
+
+  const firstNameRef = useRef<RNTextInput>(null);
+  const lastNameRef = useRef<RNTextInput>(null);
+  const emailRef = useRef<RNTextInput>(null);
+  const passwordRef = useRef<RNTextInput>(null);
 
   async function onSubmit() {
     await props.onSubmit({email, password, firstName, lastName});
@@ -30,6 +35,9 @@ export function SignUpForm(props: SignUpFormProps) {
             autoFocus
             placeholder="Seu nome"
             label="Nome"
+            returnKeyType="next"
+            onSubmitEditing={() => lastNameRef?.current?.focus()}
+            ref={firstNameRef}
           />
         </View>
         <View style={styles.spacer} />
@@ -39,6 +47,9 @@ export function SignUpForm(props: SignUpFormProps) {
             onChangeText={setLastName}
             label="Sobrenome"
             placeholder="Seu sobrenome"
+            ref={lastNameRef}
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef?.current?.focus()}
           />
         </View>
       </View>
@@ -49,14 +60,20 @@ export function SignUpForm(props: SignUpFormProps) {
         autoCapitalize="none"
         placeholder="email@email.com"
         label="E-mail"
+        ref={emailRef}
+        returnKeyType="next"
+        onSubmitEditing={() => passwordRef?.current?.focus()}
       />
       <TextInput
         type="password"
         value={password}
         keyboardType="visible-password"
+        returnKeyType="done"
         onChangeText={setPassword}
         label="Senha"
         placeholder="Uma senha segura"
+        ref={passwordRef}
+        onSubmitEditing={onSubmit}
       />
     </Form>
   );

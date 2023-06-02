@@ -4,18 +4,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {PublicStack} from './PublicStack';
 import {PrivateStack} from './PrivateStack';
 import {useGetUserSession} from '../services/auth/useGetUserSession';
-import {Spinner} from '../components/atoms/Spinner';
-import {View} from 'react-native';
+import {LoadingScreen} from '../pages/Loading';
 
 export default function Routes() {
   const {data: user, isLoading} = useGetUserSession();
 
   if (isLoading) {
-    return (
-      <View style={{flex: 1, backgroundColor: 'red'}}>
-        <Spinner />
-      </View>
-    );
+    return <LoadingScreen />;
   }
 
   return (

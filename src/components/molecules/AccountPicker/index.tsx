@@ -32,8 +32,8 @@ export function AccountPicker({onSelect, value}: AccountPickerProps) {
     <View style={styles.wrapper}>
       <Label>Conta</Label>
       <Card
-        hexColor={value ? value?.hexColor : colors.primary}
-        title={value ? value.title : 'Selecione uma conta'}
+        hexColor={value ? value?.color : colors.primary}
+        title={value ? value.name : 'Selecione uma conta'}
         onPress={showModal}
         type={value ? value.type : ''}
       />

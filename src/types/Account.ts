@@ -1,7 +1,7 @@
 export type Account = {
   id: string;
-  title: string;
+  name: string;
   value: number;
-  hexColor: string;
+  color: string;
   type?: string;
 };

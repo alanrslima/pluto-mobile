@@ -1,67 +1,48 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {TransactionsStack} from './TransactionsStack';
-import {AccountsStack} from './AccountsStack';
-import {useTheme} from '../hooks/useTheme';
-import {MenuStack} from './MenuStack';
-import {TransactionsNewPage} from '../pages/Transactions/New';
-import {Icon} from '../components/atoms/Icon';
-import {HomeFeedPage} from '../pages/Home/Feed';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../types/RootStack';
+import {TabStack} from './TabStack';
+import {CategoriesListPage} from '../pages/Categories/List';
+import {AccountsListPage} from '../pages/Accounts/List';
+import {AccountsDetailPage} from '../pages/Accounts/Detail';
+import {AccountsCreatePage} from '../pages/Accounts/Create';
+import {TransactionsListPage} from '../pages/Transactions/List';
+import {TransactionsDetailPage} from '../pages/Transactions/Detail';
+import {TransactionsEditPage} from '../pages/Transactions/Edit';
+import {CategoriesDetailPage} from '../pages/Categories/Detail';
 
-const Tab = createBottomTabNavigator();
-
-function HomeIcon() {
-  return <Icon name="chevron-left" color="white" />;
-}
-
-function TransactionsIcon() {
-  return <Icon name="shuffle" color="white" />;
-}
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function PrivateStack() {
-  const {colors} = useTheme();
-
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: '#1D1749',
-          borderTopColor: colors.whiteA100,
-          shadowColor: colors.black,
-          shadowOffset: {width: 0, height: 0},
-          shadowOpacity: 0.2,
-          shadowRadius: 10,
-        },
-      }}>
-      <Tab.Screen
-        name="Home"
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: HomeIcon,
-        }}
-        component={HomeFeedPage}
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Tab" component={TabStack} />
+
+      {/* Accounts pages */}
+      <Stack.Screen name="AccountsListPage" component={AccountsListPage} />
+      <Stack.Screen name="AccountsDetailPage" component={AccountsDetailPage} />
+      <Stack.Screen name="AccountsCreatePage" component={AccountsCreatePage} />
+
+      {/* Categories pages */}
+      <Stack.Screen name="CategoriesListPage" component={CategoriesListPage} />
+      <Stack.Screen
+        name="CategoriesDetailPage"
+        component={CategoriesDetailPage}
       />
-      <Tab.Screen
-        name="Transactions"
-        options={{tabBarLabel: 'Transações', tabBarIcon: TransactionsIcon}}
-        component={TransactionsStack}
+
+      {/* Transactions pages */}
+      <Stack.Screen
+        name="TransactionsListPage"
+        component={TransactionsListPage}
       />
-      <Tab.Screen
-        name="TransactionsNewPage"
-        component={TransactionsNewPage}
-        options={{tabBarLabel: 'Adicionar'}}
+      <Stack.Screen
+        name="TransactionsDetailPage"
+        component={TransactionsDetailPage}
       />
-      <Tab.Screen
-        name="Accounts"
-        options={{tabBarLabel: 'Contas'}}
-        component={AccountsStack}
+      <Stack.Screen
+        name="TransactionsEditPage"
+        component={TransactionsEditPage}
       />
-      <Tab.Screen
-        name="Menu"
-        options={{tabBarLabel: 'Menu'}}
-        component={MenuStack}
-      />
-    </Tab.Navigator>
+    </Stack.Navigator>
   );
 }

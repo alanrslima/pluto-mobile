@@ -12,4 +12,6 @@ export type ScreenProps = {
     any
   >;
   useBottomSafeArea?: boolean;
+  isLoading?: boolean;
+  error?: any;
 };

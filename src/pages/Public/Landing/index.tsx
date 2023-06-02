@@ -22,7 +22,9 @@ export function PublicLandingPage({navigation}: PublicLandingPageProps) {
 
   return (
     <ImageBackground source={backgroundImage} style={styles.container}>
-      <Text style={styles.text}>{'Simplifique \na sua \nvida financeira'}</Text>
+      <Text style={styles.text}>
+        {'Simplifique \na sua \nvida\nfinanceira'}
+      </Text>
       <Button
         color={colors.white}
         textColor={colors.primary}

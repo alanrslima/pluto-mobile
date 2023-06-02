@@ -15,4 +15,9 @@ export type RootStackParamList = {
   PublicSignInPage: undefined;
   PublicSignUpPage: undefined;
   PublicLandingPage: undefined;
+
+  CategoriesListPage: undefined;
+  CategoriesDetailPage: {id: string};
+
+  Tab: undefined;
 };

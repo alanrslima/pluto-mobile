@@ -6,6 +6,7 @@ import {ScreenProps} from './types';
 import {Header} from '../../molecules/Header';
 import {StatusBar} from 'expo-status-bar';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {Spinner} from '../../atoms/Spinner';
 
 export function Screen(props: ScreenProps) {
   const styles = useStyle(screenStyles);
@@ -27,7 +28,7 @@ export function Screen(props: ScreenProps) {
             : undefined
         }
       />
-      {props.children}
+      {props.isLoading ? <Spinner /> : props.children}
     </View>
   );
 }

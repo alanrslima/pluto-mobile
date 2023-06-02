@@ -34,7 +34,7 @@ export function MenuListPage({navigation}: MenuListPageProps) {
           id: 3,
           title: 'Categorias',
           description: 'Categorize os seus gastos',
-          path: '',
+          path: 'CategoriesListPage',
           icon: '',
         },
         {
@@ -65,7 +65,11 @@ export function MenuListPage({navigation}: MenuListPageProps) {
         contentContainerStyle={styles.wrapper}
         keyExtractor={item => `${item.id}`}
         renderItem={({item}) => (
-          <SimpleItem title={item.title} description={item.description} />
+          <SimpleItem
+            title={item.title}
+            onPress={() => navigation.navigate(item.path)}
+            description={item.description}
+          />
         )}
       />
       <SimpleItem

@@ -14,6 +14,7 @@ import {TransactionFormProps} from './types';
 import {Account} from '../../../types/Account';
 import {BottomSheet} from '../BottomSheet';
 import {BottomSheetHandle} from '../BottomSheet/types';
+import {DatePicker} from '../../molecules/DatePicker';
 
 export function TransactionForm({defaultValues}: TransactionFormProps) {
   const {spaces} = useTheme();
@@ -27,6 +28,10 @@ export function TransactionForm({defaultValues}: TransactionFormProps) {
 
   function onSelectAccount(value: Account) {
     setForm(prevState => ({...prevState, account: value}));
+  }
+
+  function onChangeDate(_: any, date?: Date) {
+    setForm(prevState => ({...prevState, date}));
   }
 
   function onHandleValue(value: string) {
@@ -77,6 +82,8 @@ export function TransactionForm({defaultValues}: TransactionFormProps) {
           onSelect={onSelectCategory}
         />
         <AccountPicker onSelect={onSelectAccount} value={form?.account} />
+        <DatePicker onChange={onChangeDate} value={form?.date || new Date()} />
+
         <Spacer height={spaces[8]} />
       </ScrollView>
       <View style={styles.wrapperButton}>

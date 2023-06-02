@@ -19,6 +19,20 @@ export function addAuthInterceptor(api: AxiosInstance, ctx = undefined): void {
   let failedRequestQueue: QueueProps[] = [];
   let cookies = null;
 
+  console.log('AUTH INTERCEPTOR');
+
+  api.interceptors.response.use(
+    response => {
+      console.log('RESPOSTA ', response);
+      return response;
+    },
+    error => {
+      if (error?.response?.status === 401) {
+        console.log('401 GET REFRESH TOKEN');
+      }
+    },
+  );
+
   // api.interceptors.response.use(
   //   response => {
   //     return response;

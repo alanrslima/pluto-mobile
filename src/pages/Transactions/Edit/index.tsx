@@ -10,14 +10,19 @@ export function TransactionsEditPage({navigation}: TransactionsEditPageProps) {
         defaultValues={{
           title: 'Teste',
           account: {
-            hexColor: '#9C44DC',
+            color: '#9C44DC',
             id: '1',
-            title: 'NuBank',
+            name: 'NuBank',
             value: 100,
             type: 'Conta corrente',
           },
-          category: {id: '1', name: 'Saúde'},
-          date: new Date(),
+          category: {
+            id: '1',
+            name: 'Saúde',
+            icon: 'chevron-left',
+            color: '#FFF',
+          },
+          date: new Date(2023, 10, 20),
           description: 'Teste',
           id: '123',
           value: 1000,
